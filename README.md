@@ -4,11 +4,11 @@ Mod1Mask -> Mod4Mask
 ## Patches
 - shiftview
 - fullgaps
-## Packages
+## Packages/Dependencies
 apt intall:
-- xwallpaper
-- compton
+- xwallpaper	;	xwallpaper --center [PATHIMG]
+- compton	;	vim .xinitrc -> compton -f &
 ## To Do
-tbc
+- TBC
 ## st
 [link](https://github.com/MatthiasBenaets/st.git)
