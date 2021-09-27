@@ -2,8 +2,10 @@
 ## Suckless: dwm / st / dmenu
 Mod1Mask -> Mod4Mask
 ## Patches
-- shiftview
+- alpha
+- azerty
 - fullgaps
+- shiftview
 ## Packages/Dependencies
 apt intall:
 - xwallpaper	;	xwallpaper --center [PATHIMG]
