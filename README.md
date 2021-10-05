@@ -6,10 +6,11 @@ Mod1Mask -> Mod4Mask
 - [azerty](https://dwm.suckless.org/patches/azerty/): [dwm-azerty6.2.diff](https://dwm.suckless.org/patches/azerty/dwm-azerty6.2.diff)
 - [fullgaps](https://dwm.suckless.org/patches/fullgaps): [dwm-fullgaps-20200508-7b77734.diff](https://dwm.suckless.org/patches/fullgaps/dwm-fullgaps-20200508-7b77734.diff)
 - [shiftview](https://dwm.suckless.org/patches/nextprev): [shiftview.c](https://lists.suckless.org/dev/att-7590/shiftview.c)
+- [autostart](https://dwm.suckless.org/patches/autostart):[dwm-autostart-20210120-cb3f58a.diff](https://dwm.suckless.org/patches/autostart/dwm-autostart-20210120-cb3f58a.diff)
 ## Packages/Dependencies
-apt intall:
-- xwallpaper	;	xwallpaper --center [PATHIMG]
-- compton	;	vim .xinitrc -> compton -f &
+apt intall:		nano .xinitrc
+- feh		;	feh --bg-center [PATHIMG]
+- compton	;	compton -f &
 ## To Do
 - TBC
 
