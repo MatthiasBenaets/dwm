@@ -27,7 +27,7 @@ static const unsigned int alphas[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "", "", "", "", "5", "6", "7", "", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -35,8 +35,10 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	//{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
+	{ "Chromium", NULL,       NULL,       1 << 0,       0,           -1 },
+	{ "Pavucontrol", NULL,	  NULL,       1 << 2,       0,           -1},
+        { "Blueman-manager", NULL, NULL,      1 << 3,       0,           -1},
 };
 
 /* layout(s) */
@@ -88,26 +90,26 @@ static Key keys[] = {
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
-	{ MODKEY,                       XK_agrave,      view,           {.ui = ~0 } },
-	{ MODKEY|ShiftMask,             XK_agrave,      tag,            {.ui = ~0 } },
+	{ MODKEY,                       XK_agrave, view,           {.ui = ~0 } },
+	{ MODKEY|ShiftMask,             XK_agrave, tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-	{ MODKEY,                       XK_semicolon, focusmon,       {.i = +1 } },
+	{ MODKEY,                       XK_semicolon, focusmon,    {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_semicolon, tagmon,         {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_semicolon, tagmon,      {.i = +1 } },
 	{ MODKEY,			XK_n,	   shiftview,	   {.i = +1 } },
 	{ MODKEY,			XK_b,	   shiftview,	   {.i = -1 } },
 	{ MODKEY,			XK_minus,  setgaps,        {.i = -1 } },
 	{ MODKEY, 			XK_equal,  setgaps,	   {.i = +1 } },
         { MODKEY,			XK_equal,  setgaps, 	   {.i = 0 } },
-	TAGKEYS(                        XK_ampersand,                      0)
-	TAGKEYS(                        XK_eacute,                      1)
-	TAGKEYS(                        XK_quotedbl,                      2)
-	TAGKEYS(                        XK_apostrophe,                      3)
-	TAGKEYS(                        XK_parenleft,                      4)
-	TAGKEYS(                        XK_minus,                      5)
-	TAGKEYS(                        XK_egrave,                      6)
-	TAGKEYS(                        XK_underscore,                      7)
-	TAGKEYS(                        XK_ccedilla,                      8)
+	TAGKEYS(                        XK_ampersand,              0)
+	TAGKEYS(                        XK_eacute,                 1)
+	TAGKEYS(                        XK_quotedbl,               2)
+	TAGKEYS(                        XK_apostrophe,             3)
+	TAGKEYS(                        XK_parenleft,              4)
+	TAGKEYS(                        XK_section,                5)
+	TAGKEYS(                        XK_egrave,                 6)
+	TAGKEYS(                        XK_exclam,                 7)
+	TAGKEYS(                        XK_ccedilla,               8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 };
 
