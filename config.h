@@ -1,18 +1,18 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int gappx     = 5;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=10" };
-static const char dmenufont[]       = "monospace:size=10";
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
+static const char *fonts[]          = { "Source Code Pro:style=Semibold:size=9", "FontAwesome:Regular:pixelsize=12" };
+static const char dmenufont[]       = "Source Code Pro:style=Semibold:size=9";
+static const char col_gray1[]       = "#222222";	/* statusbar */
+static const char col_gray2[]       = "#222222";	/* tagbar */
+static const char col_gray3[]       = "#EEEEEE";	/* text color */
+static const char col_gray4[]       = "#EEEEEE";	/* icon color */
+static const char col_cyan[]        = "#444444";	/* selected color */
 static const unsigned int baralpha = 0xd0;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
@@ -27,7 +27,7 @@ static const unsigned int alphas[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "", "", "", "", "5", "6", "7", "", "" };
+static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -36,9 +36,9 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	//{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Chromium", NULL,       NULL,       1 << 0,       0,           -1 },
-	{ "Pavucontrol", NULL,	  NULL,       1 << 2,       0,           -1},
-        { "Blueman-manager", NULL, NULL,      1 << 3,       0,           -1},
+	{ "Chromium", NULL,       NULL,       1 << 1,       0,           -1 },
+	{ "PulseMixer", NULL,	  NULL,       1 << 5,       0,           -1},
+        { "Blueman-manager", NULL, NULL,      1 << 6,       0,           -1},
 };
 
 /* layout(s) */
