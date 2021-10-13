@@ -39,7 +39,7 @@ bat(){
 	CHARGE=$(cat /sys/class/power_supply/BAT0/capacity)
 	STATUS=$(cat /sys/class/power_supply/BAT0/status)
 
-	if [ "$STATUS" = "Charging" ]; then
+	if [ "$STATUS" = "Charging" ] || [ "$STATUS" = "Full" ]; then
 		echo " $CHARGE%"
 	elif [ "$CHARGE" -ge 90 ]; then
 		echo " $CHARGE%"
