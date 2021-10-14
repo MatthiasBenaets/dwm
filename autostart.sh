@@ -31,7 +31,7 @@ aud(){
 		echo " $AUDIO"
 	elif [ "$AUDIO" -lt 50 ] && [ "CHARGE" -ge 0 ]; then
 		echo " $AUDIO"
-	elif [ "$AUDIO" == 0 ]; then
+	elif [ "$AUDIO" = 0 ]; then
 		echo " $AUDIO"
 	fi
 }
