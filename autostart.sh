@@ -6,8 +6,8 @@ tme(){
 	echo $(date +"%H:%M")
 }
 upg(){
-	UPGRADE=$(apt list --upgradeable | wc -l)
-	echo " $((UPGRADE-1))"
+	UPGRADE=$(xbps-install -Sun | wc -l)
+	echo " $((UPGRADE))"
 }
 int(){
 	ETH=$(cat /sys/class/net/enp0s3/operstate)

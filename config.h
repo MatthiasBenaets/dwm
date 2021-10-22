@@ -11,17 +11,17 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 //static const char dmenufont[]       = "Liberation Mono:size=10";
 static const char *fonts[]          = { "Source Code Pro:style=Bold:size=9", "FontAwesome:Regular:pixelsize=12" };
 static const char dmenufont[]       = "Source Code Pro:style=Bold:size=9";
-static const char col_gray1[]       = "#222222";	/* statusbar */
-static const char col_gray2[]       = "#222222";	/* tagbar */
-static const char col_gray3[]       = "#EEEEEE";	/* text color */
-static const char col_gray4[]       = "#EEEEEE";	/* icon color */
-static const char col_cyan[]        = "#444444";	/* selected color */
+static const char col_gray1[]       = "#222222";	/* status not selected */
+static const char col_gray2[]       = "#444444";	/* tag    not selected */
+static const char col_gray3[]       = "#BBBBBB";	/* icon   not selected */
+static const char col_gray4[]       = "#EEEEEE";	/* icon text  selected */
+static const char col_cyan[]        = "#B5BD68";	/* status tag selected */
 static const unsigned int baralpha = 0xd0;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeNorm] = { col_gray4, col_gray1, col_gray2 },
+	[SchemeSel]  = { col_gray1, col_gray3, col_cyan  },
 };
 static const unsigned int alphas[][3]      = {
 	/*               fg      bg        border     */
@@ -80,7 +80,7 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_t,      togglebar,      {0} },
+	{ MODKEY|ShiftMask,             XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
@@ -105,7 +105,7 @@ static Key keys[] = {
 	{ MODKEY,			XK_b,	   shiftview,	   {.i = -1 } },
 	{ MODKEY,			XK_minus,  setgaps,        {.i = -1 } },
 	{ MODKEY, 			XK_equal,  setgaps,	   {.i = +1 } },
-        { MODKEY,			XK_equal,  setgaps, 	   {.i = 0 } },
+        { MODKEY|ShiftMask,		XK_equal,  setgaps, 	   {.i = 0 } },
 	TAGKEYS(                        XK_ampersand,              0)
 	TAGKEYS(                        XK_eacute,                 1)
 	TAGKEYS(                        XK_quotedbl,               2)
