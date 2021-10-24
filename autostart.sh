@@ -1,9 +1,9 @@
 #!/bin/sh
 dte(){
-	echo $(date +"%a %d %b")
+	echo "$(date +"%a %d %b")"
 }
 tme(){
-	echo $(date +"%H:%M")
+	echo "$(date +"%H:%M")"  
 }
 upg(){
 	UPGRADE=$(xbps-install -Sun | wc -l)
@@ -40,7 +40,7 @@ bat(){
 	STATUS=$(cat /sys/class/power_supply/BAT0/status)
 
 	if [ "$STATUS" = "Charging" ] || [ "$STATUS" = "Full" ]; then
-		echo " $CHARGE%"
+		echo " $CHARGE%" 
 	elif [ "$CHARGE" -ge 90 ]; then
 		echo " $CHARGE%"
 	elif [ "$CHARGE" -lt 90 ] && [ "$CHARGE" -ge 65 ]; then
@@ -55,7 +55,11 @@ bat(){
 }
 
 while true; do
-	xsetroot -name "  $(dte) | $(upg) | $(aud) | $(bat) | $(tme) | $(int) "
+	if [ "$(bat) = """ ]; then
+		xsetroot -name "  $(dte) | $(upg) | $(aud) | $(tme) | $(int) "
+	else
+		xsetroot -name "  $(dte) | $(upg) | $(aud) | $(bat) | $(tme) | $(int) "
+	fi
 	sleep 15s
 done
 
