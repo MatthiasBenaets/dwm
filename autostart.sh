@@ -6,8 +6,8 @@ tme(){
 	echo "$(date +"%H:%M")"  
 }
 upg(){
-	UPGRADE=$(xbps-install -Sun | wc -l)
-	echo " $((UPGRADE))"
+UPGRADE=$(pacman -Qu | wc -l)
+echo " $((UPGRADE))"
 }
 int(){
 	ETH=$(cat /sys/class/net/enp0s3/operstate)
@@ -55,11 +55,7 @@ bat(){
 }
 
 while true; do
-	if [ "$(bat) = """ ]; then
-		xsetroot -name "  $(dte) | $(upg) | $(aud) | $(tme) | $(int) "
-	else
-		xsetroot -name "  $(dte) | $(upg) | $(aud) | $(bat) | $(tme) | $(int) "
-	fi
-	sleep 15s
+	xsetroot -name "  $(dte) | $(upg) | $(aud) | $(bat) | $(tme) | $(int) "
+	sleep 5s
 done
 

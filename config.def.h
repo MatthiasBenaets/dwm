@@ -21,7 +21,7 @@ static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray4, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray1, col_gray3, col_cyan  },
+	[SchemeSel]  = { col_gray1, col_cyan, col_cyan  },
 };
 static const unsigned int alphas[][3]      = {
 	/*               fg      bg        border     */
@@ -40,8 +40,8 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask  isfloating  isterminal  noswallow  monitor */
 	//{ "Gimp",   NULL,       NULL,       0,         1,          0,          0,         -1 },
 	{ "Chromium", NULL,       NULL,       1 << 1,    0,          0,          -1,        -1 },
-	{ "PulseMixer", NULL,	  NULL,       1 << 5,    0,          0,          0,         -1 },
-        { "Blueman-manager", NULL, NULL,      1 << 6,    0,          0,          0,         -1 },
+	{ "Pulsemixer", NULL,	  NULL,       1 << 6,    0,          0,          0,         -1 },
+        { "Blueman-manager", NULL, NULL,      1 << 5,    0,          0,          0,         -1 },
 	{ "st-256color", NULL,    NULL,       0,         0,          1,          0,         -1 },
 	{ NULL,      NULL,       "Event Tester", 0,      0,          0,          1,         -1 }, /* xev */
 };
