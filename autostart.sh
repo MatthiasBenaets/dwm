@@ -10,26 +10,26 @@ UPGRADE=$(pacman -Qu | wc -l)
 echo " $((UPGRADE))"
 }
 int(){
-	ETH=$(cat /sys/class/net/enp0s3/operstate)
+	ETH=$(cat /sys/class/net/enp0s25/operstate)
 	WIFI=$(cat /sys/class/net/wlo1/operstate)
 
 	if [ "$ETH" = "up" ]; then
 		echo ""
 	elif [ "$WIFI" = "up" ]; then
 		echo ""
-	elif [ "$ETH" = "down" ] && [ "$WIFI" = "down"]; then
+	elif [ "$ETH" = "down" ] && [ "$WIFI" = "down" ]; then
 		echo ""
 	fi
 }
 aud(){
-	AUDIO=$(amixer get Master | tail -n1 | sed -r "s/.*\[(.*)%\].*/\1/")
+	AUDIO=$(amixer -M get Master | tail -n1 | sed -r "s/.*\[(.*)%\].*/\1/")
 	MUTE=$(pacmd list-sinks | awk '/muted/ {print $2 }')
 
 	if [ "$MUTE" = "yes" ]; then
 		echo " X"
 	elif [ "$AUDIO" -ge 50 ]; then
 		echo " $AUDIO"
-	elif [ "$AUDIO" -lt 50 ] && [ "CHARGE" -ge 0 ]; then
+	elif [ "$AUDIO" -lt 50 ] && [ "$AUDIO" -gt 0 ]; then
 		echo " $AUDIO"
 	elif [ "$AUDIO" = 0 ]; then
 		echo " $AUDIO"
