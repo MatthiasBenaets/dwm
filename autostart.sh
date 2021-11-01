@@ -6,11 +6,11 @@ tme(){
 	echo "$(date +"%H:%M")"  
 }
 upg(){
-UPGRADE=$(xbps-install -Suvn | wc -l)
+UPGRADE=$(xbps-install -Suvn | wc -l) #apt = apt-list --upgradable | pacman = pacman -Qu | xbps = xbps-install -Suvn
 echo " $((UPGRADE))"
 }
 int(){
-	ETH=$(cat /sys/class/net/enp0s3/operstate)
+	ETH=$(cat /sys/class/net/enp0s3/operstate) #edit this to correct networkcard with >ip a
 	WIFI=$(cat /sys/class/net/wlo1/operstate)
 
 	if [ "$ETH" = "up" ]; then
@@ -22,7 +22,7 @@ int(){
 	fi
 }
 aud(){
-	AUDIO=$(amixer -M get PCM | tail -n1 | sed -r "s/.*\[(.*)%\].*/\1/")
+	AUDIO=$(amixer -M get PCM | tail -n1 | sed -r "s/.*\[(.*)%\].*/\1/") #PCM is for Virutal Machine, for computer is probably just "Master"
 	MUTE=$(pacmd list-sinks | awk '/muted/ {print $2 }')
 
 	if [ "$MUTE" = "yes" ]; then
