@@ -40,7 +40,8 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask  isfloating  isterminal  noswallow  monitor */
 	//{ "Gimp",   NULL,       NULL,       0,         1,          0,          0,         -1 },
 	{ "Chromium", NULL,       NULL,       1 << 1,    0,          0,          -1,        -1 },
-	{ "Pulsemixer", NULL,	  NULL,       1 << 6,    0,          0,          0,         -1 },
+	{ "st-256color", NULL,    "ranger",   1 << 2,    0,          0,          0,         -1 },
+	{ "st-256color", NULL,    "pulsemixer", 1 << 6,  0,          0,          0,         -1 },
         { "Blueman-manager", NULL, NULL,      1 << 5,    0,          0,          0,         -1 },
 	{ "st-256color", NULL,    NULL,       0,         0,          1,          0,         -1 },
 	{ NULL,      NULL,       "Event Tester", 0,      0,          0,          1,         -1 }, /* xev */
@@ -72,8 +73,9 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray1, NULL };
 static const char *termcmd[]  = { "st", NULL };
+static const char *rangercmd[] = { "st", "ranger", NULL };
 static const char *pulsecmd[] = { "st", "pulsemixer", NULL };
 static const char *chromecmd[] = { "chromium" , NULL };
 
@@ -118,6 +120,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_exclam,                 7)
 	TAGKEYS(                        XK_ccedilla,               8)
 	{ MODKEY|ShiftMask,             XK_Escape, quit,           {0} },
+	{ MODKEY,			XK_r,	   spawn,	   {.v = rangercmd } },
 	{ MODKEY,			XK_p,	   spawn,	   {.v = pulsecmd } },
 	{ MODKEY,			XK_c,	   spawn,	   {.v = chromecmd } },
 };

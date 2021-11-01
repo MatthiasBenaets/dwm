@@ -6,11 +6,11 @@ tme(){
 	echo "$(date +"%H:%M")"  
 }
 upg(){
-UPGRADE=$(pacman -Qu | wc -l)
+UPGRADE=$(xbps-install -Suvn | wc -l)
 echo " $((UPGRADE))"
 }
 int(){
-	ETH=$(cat /sys/class/net/enp0s25/operstate)
+	ETH=$(cat /sys/class/net/enp0s3/operstate)
 	WIFI=$(cat /sys/class/net/wlo1/operstate)
 
 	if [ "$ETH" = "up" ]; then
@@ -22,7 +22,7 @@ int(){
 	fi
 }
 aud(){
-	AUDIO=$(amixer -M get Master | tail -n1 | sed -r "s/.*\[(.*)%\].*/\1/")
+	AUDIO=$(amixer -M get PCM | tail -n1 | sed -r "s/.*\[(.*)%\].*/\1/")
 	MUTE=$(pacmd list-sinks | awk '/muted/ {print $2 }')
 
 	if [ "$MUTE" = "yes" ]; then
