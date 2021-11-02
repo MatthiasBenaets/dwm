@@ -86,7 +86,9 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
+	{ MODKEY,			XK_Left,   focusstack,     {.i = +1 } }, /*navigate w. arrow*/
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
+	{ MODKEY,			XK_Right,  focusstack,     {.i = +1 } }, /*navigate w. arrow*/
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_u,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
@@ -105,11 +107,15 @@ static Key keys[] = {
 	{ MODKEY,                       XK_semicolon, focusmon,    {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_semicolon, tagmon,      {.i = +1 } },
-	{ MODKEY,			XK_n,	   shiftview,	   {.i = +1 } },
-	{ MODKEY,			XK_b,	   shiftview,	   {.i = -1 } },
-	{ MODKEY,			XK_minus,  setgaps,        {.i = -1 } },
-	{ MODKEY, 			XK_equal,  setgaps,	   {.i = +1 } },
-        { MODKEY|ShiftMask,		XK_equal,  setgaps, 	   {.i = 0 } },
+	{ MODKEY,			XK_n,	   shiftview,	   {.i = +1 } }, /*shiftview*/
+	{ MODKEY,			XK_b,	   shiftview,	   {.i = -1 } }, /*shiftview*/
+	{ MODKEY,			XK_minus,  setgaps,        {.i = -1 } }, /*fullgaps*/
+	{ MODKEY, 			XK_equal,  setgaps,	   {.i = +1 } }, /*fullgaps*/
+        { MODKEY|ShiftMask,		XK_equal,  setgaps, 	   {.i = 0 } }, /*fullgaps*/
+	{ MODKEY|ShiftMask,		XK_j,	   pushdown,	   {0} }, /*push*/
+	{ MODKEY|ShiftMask,		XK_Left,   pushdown,	   {0} }, /*push with arrow*/
+	{ MODKEY|ShiftMask,		XK_k,	   pushup,	   {0} }, /*push*/
+	{ MODKEY|ShiftMask,		XK_Right,  pushup,	   {0} }, /*push with arrow*/
 	TAGKEYS(                        XK_ampersand,              0)
 	TAGKEYS(                        XK_eacute,                 1)
 	TAGKEYS(                        XK_quotedbl,               2)
