@@ -2,4 +2,5 @@ original
 *.orig
 *.rej
 *.swp
+config.h
 dwm
