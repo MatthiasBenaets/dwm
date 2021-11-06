@@ -37,14 +37,14 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask  isfloating  isterminal  noswallow  monitor */
-	//{ "Gimp",   NULL,       NULL,       0,         1,          0,          0,         -1 },
-	{ "Chromium", NULL,       NULL,       1 << 1,    0,          0,          -1,        -1 },
-	{ "st-256color", NULL,    "ranger",   1 << 2,    0,          0,          0,         -1 },
-	{ "st-256color", NULL,    "pulsemixer", 1 << 6,  0,          0,          0,         -1 },
-        { "Blueman-manager", NULL, NULL,      1 << 5,    0,          0,          0,         -1 },
-	{ "st-256color", NULL,    NULL,       0,         0,          1,          0,         -1 },
-	{ NULL,      NULL,       "Event Tester", 0,      0,          0,          1,         -1 }, /* xev */
+	/* class      instance    title       tags mask  iscentered  isfloating  isterminal  noswallow  monitor */
+	//{ "Gimp",   NULL,       NULL,       0,         0;          1,          0,          0,         -1 },
+	{ "Chromium", NULL,       NULL,       1 << 1,    0,          0,          0,          -1,        -1 },
+	{ NULL,       NULL,       "ranger",   0,         1,          1,          0,          0,         -1 },
+	{ NULL,       NULL,       "pulsemixer", 0,       1,          1,          0,          0,         -1 },
+        { "Blueman-manager", NULL, NULL,      1 << 5,    0,          0,          0,          0,         -1 },
+	{ "st-256color", NULL,    NULL,       0,         0,          0,          1,          0,         -1 },
+	{ NULL,      NULL,       "Event Tester", 0,      0,          0,          0,          1,         -1 }, /* xev */
 };
 
 /* layout(s) */
@@ -70,6 +70,8 @@ static const Layout layouts[] = {
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/usr/local/bin/st", "-c", cmd, NULL } }
+
+#define STATUSBAR "dwmblocks"
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
@@ -138,7 +140,9 @@ static Button buttons[] = {
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
-	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
+	{ ClkStatusText,        0,              Button1,        sigstatusbar,   {.i = 1} },
+	{ ClkStatusText,        0,              Button2,        sigstatusbar,   {.i = 2} },
+	{ ClkStatusText,        0,              Button3,        sigstatusbar,   {.i = 3} },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
