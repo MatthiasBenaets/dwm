@@ -5,7 +5,7 @@ Mod1Mask -> Mod4Mask
 - [alpha](https://dwm.suckless.org/patches/alpha/): [dwm-alpha-20201019-61bb8b2.diff](https://dwm.suckless.org/patches/alpha/dwm-alpha-20201019-61bb8b2.diff)
 - [autostart](https://dwm.suckless.org/patches/autostart):[dwm-autostart-20210120-cb3f58a.diff](https://dwm.suckless.org/patches/autostart/dwm-autostart-20210120-cb3f58a.diff)
 - [azerty](https://dwm.suckless.org/patches/azerty/): [dwm-azerty6.2.diff](https://dwm.suckless.org/patches/azerty/dwm-azerty6.2.diff)
-- [center](https://dwm.suckless.org/patches/center/): [dwm-center-6.2.diff](https://dwm.suckless.org/patches/center/dwm-center-6.2.diff)
+- [alwayscenter](https://dwm.suckless.org/patches/alwayscenter/): [dwm-alwayscenter-20200625-f04cac6.diff](https://dwm.suckless.org/patches/alwayscenter/dwm-alwayscenter-20200625-f04cac6.diff)
 - [fullgaps](https://dwm.suckless.org/patches/fullgaps): [dwm-fullgaps-20200508-7b77734.diff](https://dwm.suckless.org/patches/fullgaps/dwm-fullgaps-20200508-7b77734.diff)
 - [push](https://dwm.suckless.org/patches/push):[dwm-push-20201112-61bb8b2.diff](https://dwm.suckless.org/patches/push/dwm-push-20201112-61bb8b2.diff)
 - [shiftview](https://dwm.suckless.org/patches/nextprev): [shiftview.c](https://lists.suckless.org/dev/att-7590/shiftview.c)
@@ -16,19 +16,23 @@ dwm:
 - gcc
 - libx11-dev
 - libxft-dev
-- libxinerama-dev 
+- libxinerama-dev
+ 
 swallow:
 - libx11-xcb-dev
 - libxcb-res0-dev
+
 fonts:
 - fonts-font-awesome
+
 rest of desktop:	vim .xinitrc
 - feh		;	feh --bg-center [PATHIMG]
 - compton	;	compton -f &
 - sxhkd
 - ranger
-- ueberzug (if not available, via 'pip') 
+- ueberzug (if not available, via 'pip')
+
 dwmblocks:
-[github](https://github.com/MatthiasBenaets/dwmblocks)
+- [github](https://github.com/MatthiasBenaets/dwmblocks)
 ## To Do
 - TBC
