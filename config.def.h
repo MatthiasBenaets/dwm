@@ -40,7 +40,7 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask  isfloating  isterminal  noswallow  monitor */
 	//{ "Gimp",   NULL,       NULL,       0,         1,          0,          0,         -1 },
 	{ "Chromium", NULL,       NULL,       1 << 1,    0,          0,          -1,        -1 },
-	{ NULL,       NULL,       "nmcli",    0,         1,          0,          0,         -1 }, /* used for nmcli */
+	{ NULL,       NULL,       "nmtui",    0,         1,          0,          0,         -1 }, /* used for nmcli */
 	{ NULL,       NULL,       "ranger",   0,         1,          0,          0,         -1 }, /* file manager */
 	{ NULL,       NULL,       "pulsemixer", 0,       1,          0,          0,         -1 }, /* sound */
         { "Blueman-manager", NULL, NULL,      1 << 5,    0,          0,          0,         -1 }, /* bluetooth */
