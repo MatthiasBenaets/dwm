@@ -30,7 +30,8 @@ static const unsigned int alphas[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
+//static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
+static const char *tags[] = { "", "", "", "", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -40,10 +41,11 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask  isfloating  isterminal  noswallow  monitor */
 	//{ "Gimp",   NULL,       NULL,       0,         1,          0,          0,         -1 },
 	{ "Chromium", NULL,       NULL,       1 << 1,    0,          0,          -1,        -1 },
-	{ NULL,       NULL,       "nmtui",    0,         1,          0,          0,         -1 }, /* used for nmcli */
+	{ NULL,       NULL,       "nmtui",    0,         1,          0,          0,         -1 }, /* used for networkmanager */
 	{ NULL,       NULL,       "ranger",   0,         1,          0,          0,         -1 }, /* file manager */
 	{ NULL,       NULL,       "pulsemixer", 0,       1,          0,          0,         -1 }, /* sound */
-        { "Blueman-manager", NULL, NULL,      1 << 5,    0,          0,          0,         -1 }, /* bluetooth */
+        { "Blueman-manager", NULL, NULL,      0,         1,          0,          0,         -1 }, /* bluetooth */
+	{ "plexmediaplayer", NULL, NULL,      1 << 3,    0,          0,          0,         -1 }, /* plex */
 	{ "st-256color", NULL,    NULL,       0,         0,          1,          0,         -1 }, /* terminal */
 	{ NULL,       NULL,       "Event Tester", 0,     0,          0,          1,         -1 }, /* xev */
 };
@@ -124,10 +126,10 @@ static Key keys[] = {
 	TAGKEYS(                        XK_quotedbl,               2)
 	TAGKEYS(                        XK_apostrophe,             3)
 	TAGKEYS(                        XK_parenleft,              4)
-	TAGKEYS(                        XK_section,                5)
-	TAGKEYS(                        XK_egrave,                 6)
-	TAGKEYS(                        XK_exclam,                 7)
-	TAGKEYS(                        XK_ccedilla,               8)
+	//TAGKEYS(                        XK_section,                5)
+	//TAGKEYS(                        XK_egrave,                 6)
+	//TAGKEYS(                        XK_exclam,                 7)
+	//TAGKEYS(                        XK_ccedilla,               8)
 	{ MODKEY|ShiftMask,             XK_Escape, quit,           {0} },
 	{ MODKEY,			XK_r,	   spawn,	   {.v = rangercmd } },
 	{ MODKEY,			XK_p,	   spawn,	   {.v = pulsecmd } },
@@ -141,9 +143,9 @@ static Button buttons[] = {
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
-	{ ClkStatusText,        0,              Button1,        sigstatusbar,   {.i = 1} },
-	{ ClkStatusText,        0,              Button2,        sigstatusbar,   {.i = 2} },
-	{ ClkStatusText,        0,              Button3,        sigstatusbar,   {.i = 3} },
+	{ ClkStatusText,        0,              Button1,        sigstatusbar,   {.i = 1} }, /* statuscmd blocks click */
+	/*ClkStatusText,        0,              Button2,        sigstatusbar,   {.i = 2} }, // statuscmd blocks click */
+	{ ClkStatusText,        0,              Button3,        sigstatusbar,   {.i = 3} }, /* statuscmd blocks click */
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },

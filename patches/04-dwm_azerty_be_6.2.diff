@@ -29,7 +29,7 @@ diff -up dwm-6.2/config.def.h dwm-6.2-azerty/config.def.h
 +	TAGKEYS(                        XK_quotedbl,               2)
 +	TAGKEYS(                        XK_apostrophe,             3)
 +	TAGKEYS(                        XK_parenleft,              4)
-+	TAGKEYS(                        XK_egrave,                 5)
++	TAGKEYS(                        XK_section,                5)
 +	TAGKEYS(                        XK_egrave,                 6)
 +	TAGKEYS(                        XK_exclam,                 7)
 +	TAGKEYS(                        XK_ccedilla,               8)
